@@ -18,7 +18,7 @@ async function bootstrap() {
   const bindings = APP_BINDINGS(MicroserviceName.APP);
   await app.listen(bindings.port, bindings.host);
   console.log(
-    `APP successfully started on port ${bindings.port} and ${bindings.url}`,
+    `APP successfully started on port ${bindings.port}, ${bindings.url}`,
   );
 }
 bootstrap();
