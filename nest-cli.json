@@ -27,6 +27,24 @@
       "compilerOptions": {
         "tsConfigPath": "apps/ai/tsconfig.app.json"
       }
+    },
+    "utils": {
+      "type": "library",
+      "root": "libs/utils",
+      "entryFile": "index",
+      "sourceRoot": "libs/utils/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/utils/tsconfig.lib.json"
+      }
+    },
+    "enums": {
+      "type": "library",
+      "root": "libs/enums",
+      "entryFile": "index",
+      "sourceRoot": "libs/enums/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/enums/tsconfig.lib.json"
+      }
     }
   }
 }
