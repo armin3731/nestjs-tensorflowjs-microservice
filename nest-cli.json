@@ -1,8 +1,32 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/netjs-ai-microservice/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/netjs-ai-microservice/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/netjs-ai-microservice",
+  "projects": {
+    "netjs-ai-microservice": {
+      "type": "application",
+      "root": "apps/netjs-ai-microservice",
+      "entryFile": "main",
+      "sourceRoot": "apps/netjs-ai-microservice/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/netjs-ai-microservice/tsconfig.app.json"
+      }
+    },
+    "ai": {
+      "type": "application",
+      "root": "apps/ai",
+      "entryFile": "main",
+      "sourceRoot": "apps/ai/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/ai/tsconfig.app.json"
+      }
+    }
   }
 }
