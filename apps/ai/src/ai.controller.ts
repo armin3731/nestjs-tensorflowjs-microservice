@@ -1,12 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { AiService } from './ai.service';
+import { MessagePattern } from '@nestjs/microservices';
 
 @Controller()
 export class AiController {
   constructor(private readonly aiService: AiService) {}
 
-  @Get()
-  getHello(): string {
-    return this.aiService.getHello();
+  @MessagePattern({ cmd: 'hello' })
+  async getHello(data: string): Promise<string> {
+    return this.aiService.getHello(data);
   }
 }

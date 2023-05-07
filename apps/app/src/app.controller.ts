@@ -1,12 +1,14 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Post, Query } from '@nestjs/common';
 import { AppService } from './app.service';
+import { ApiQuery, ApiTags } from '@nestjs/swagger';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Post()
+  @ApiQuery({ name: 'name', required: true, type: 'string' })
+  async getHello(@Query('name') name: string): Promise<string> {
+    return this.appService.getHello(name);
   }
 }
