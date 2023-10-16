@@ -5,17 +5,18 @@ import { ConfigModule } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { APP_BINDINGS } from 'libs/utils';
 import { MicroserviceName } from 'libs/enums';
+import { MicroPackageName } from 'libs/enums/package-name.enum';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     ClientsModule.register([
       {
-        name: 'AI_SERVICE',
-        transport: Transport.TCP,
+        name: MicroPackageName.AI,
+        transport: Transport.GRPC,
         options: {
-          host: APP_BINDINGS(MicroserviceName.AI).host,
-          port: APP_BINDINGS(MicroserviceName.AI).port,
+          package: APP_BINDINGS(MicroserviceName.AI).packageName,
+          protoPath: APP_BINDINGS(MicroserviceName.AI).protoPath,
         },
       },
     ]),

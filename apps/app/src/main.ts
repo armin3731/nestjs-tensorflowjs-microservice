@@ -8,9 +8,9 @@ async function bootstrap() {
 
   bootstrapSwagger(app);
   const bindings = APP_BINDINGS(MicroserviceName.APP);
-  await app.listen(bindings.port, bindings.host);
+  await app.listen(bindings.httpPort, bindings.host);
   console.log(
-    `${MicroserviceName.APP} successfully started on port ${bindings.port}, ${bindings.url}`,
+    `${MicroserviceName.APP} successfully started on port ${bindings.httpPort}, ${bindings.url}`,
   );
   console.log(`Swagger successfully started on ${bindings.url}/api`);
 }

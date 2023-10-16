@@ -9,17 +9,17 @@ async function bootstrap() {
   const micro = await NestFactory.createMicroservice<MicroserviceOptions>(
     AiModule,
     {
-      transport: Transport.TCP,
+      transport: Transport.GRPC,
       options: {
-        host: bindings.host,
-        port: bindings.port,
+        package: bindings.packageName,
+        protoPath: bindings.protoPath,
       },
     },
   );
 
   await micro.listen();
   console.log(
-    `${MicroserviceName.AI} microservice successfully started on port ${bindings.port}, ${bindings.url}`,
+    `${MicroserviceName.AI} microservice successfully started on port ${bindings.rpcPort}`,
   );
 }
 bootstrap();

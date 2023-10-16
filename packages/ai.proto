@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package ai;
+
+service AiService {
+
+	rpc Analyze(RequestText) returns (Analysis);
+}
+
+message RequestText {
+    string text = 1;
+}
+
+
+message Analysis {
+  bool identity_attack = 1;
+  bool insult = 2;
+  bool obscene = 3;
+  bool severe_toxicity = 4;
+  bool sexual_explicit = 5;
+  bool threat = 6;
+  bool toxicity = 7;
+}
