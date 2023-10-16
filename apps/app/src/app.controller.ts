@@ -1,14 +1,16 @@
-import { Controller, Post, Query } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-import { ApiQuery, ApiTags } from '@nestjs/swagger';
+import { AnalyzeDto } from './dto/analyze.dto';
+import { ApiTags } from '@nestjs/swagger';
+import { Analysis } from '@app/interfaces';
 
 @Controller()
+@ApiTags('AI Microservice')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Post()
-  @ApiQuery({ name: 'name', required: true, type: 'string' })
-  async getHello(@Query('name') name: string): Promise<string> {
-    return this.appService.getHello(name);
+  @Post('analyze')
+  async analyze(@Body() data: AnalyzeDto): Promise<Analysis> {
+    return this.appService.analyze(data.text);
   }
 }
