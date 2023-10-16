@@ -18,18 +18,12 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@app/utils": [
-        "libs/utils/src"
-      ],
-      "@app/utils/*": [
-        "libs/utils/src/*"
-      ],
-      "@app/enums": [
-        "libs/enums/src"
-      ],
-      "@app/enums/*": [
-        "libs/enums/src/*"
-      ]
+      "@app/utils": ["libs/utils/"],
+      "@app/utils/*": ["libs/utils/*"],
+      "@app/enums": ["libs/enums"],
+      "@app/enums/*": ["libs/enums/*"],
+      "@app/interfaces": ["libs/interfaces"],
+      "@app/interfaces/*": ["libs/interfaces/*"]
     }
   }
 }

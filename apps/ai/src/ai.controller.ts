@@ -1,13 +1,14 @@
 import { Controller } from '@nestjs/common';
 import { AiService } from './ai.service';
-import { MessagePattern } from '@nestjs/microservices';
+import { GrpcMethod, Payload } from '@nestjs/microservices';
+import { Analysis } from '@app/interfaces';
 
 @Controller()
 export class AiController {
   constructor(private readonly aiService: AiService) {}
 
-  @MessagePattern({ cmd: 'hello' })
-  async getHello(data: string): Promise<string> {
-    return this.aiService.getHello(data);
+  @GrpcMethod('AiService', 'Analyze')
+  async analyze(@Payload() text: string): Promise<Analysis> {
+    return this.aiService.analyze(text);
   }
 }

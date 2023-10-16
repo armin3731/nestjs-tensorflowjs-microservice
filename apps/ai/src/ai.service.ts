@@ -1,8 +1,9 @@
+import { Analysis } from '@app/interfaces';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AiService {
-  getHello(data: string): string {
-    return `Hello ${data}!`;
+  async analyze(text: string): Promise<Analysis> {
+    return;
   }
 }
