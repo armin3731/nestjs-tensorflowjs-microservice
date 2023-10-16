@@ -9,7 +9,7 @@ import { Analysis } from '@app/interfaces';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Post('analyze')
+  @Post('analyze_toxicity')
   async analyze(@Body() data: AnalyzeDto): Promise<Analysis> {
     return this.appService.analyze(data.text);
   }

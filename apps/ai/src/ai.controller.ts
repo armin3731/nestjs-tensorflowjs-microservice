@@ -9,6 +9,7 @@ export class AiController {
 
   @GrpcMethod('AiService', 'Analyze')
   async analyze(@Payload() text: string): Promise<Analysis> {
+    console.debug('text ================================\n', text);
     return this.aiService.analyze(text);
   }
 }

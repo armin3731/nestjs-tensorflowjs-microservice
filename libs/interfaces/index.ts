@@ -1,2 +1,2 @@
 export * from './analysis.interface';
-export * from './ai-grpc-service.interface';
+export * from './ai-grpc.interface';
