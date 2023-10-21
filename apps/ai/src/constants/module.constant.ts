@@ -1,0 +1,1 @@
+export const TOXICITY_MODEL = 'TOXICITY_MODEL';
