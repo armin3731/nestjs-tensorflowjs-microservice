@@ -8,6 +8,6 @@ require('@tensorflow/tfjs');
 @Module({
   imports: [ConfigModule.forRoot()],
   controllers: [AiController],
-  providers: [AiService, modelProvider],
+  providers: [modelProvider, AiService],
 })
 export class AiModule {}
