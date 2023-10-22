@@ -1,16 +1,12 @@
 import { Analysis, RequestText } from '@app/interfaces';
-import { Injectable, OnModuleInit } from '@nestjs/common';
-import { TOXICITY_THRESH } from './constants';
-import * as tf from '@tensorflow/tfjs';
+import { Inject, Injectable } from '@nestjs/common';
+import { TOXICITY_MODEL } from './constants';
 import * as toxicity from '@tensorflow-models/toxicity';
+require('@tensorflow/tfjs');
 
 @Injectable()
-export class AiService implements OnModuleInit {
-  onModuleInit() {
-    throw new Error('Method not implemented.');
-  }
-  private model: toxicity.ToxicityClassifier;
-
+export class AiService {
+  constructor(@Inject(TOXICITY_MODEL) model: toxicity.ToxicityClassifier) {}
   // async onModuleInit() {
   // console.debug('HeyBrooooooooo------------------------------');
   // await toxicity.load(TOXICITY_THRESH, []).then((m) => (this.model = m));

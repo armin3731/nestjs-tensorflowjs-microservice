@@ -1,15 +1,18 @@
-import toxicity, { ToxicityClassifier } from '@tensorflow-models/toxicity';
+import * as toxicity from '@tensorflow-models/toxicity';
+require('@tensorflow/tfjs');
 import { TOXICITY_THRESH } from '../constants';
-import { Provider } from '@nestjs/common';
+import { Logger, Provider } from '@nestjs/common';
 
-export async function loadModel(
-  thresh: number = TOXICITY_THRESH,
-): Promise<ToxicityClassifier> {
-  const model: ToxicityClassifier = await toxicity.load(thresh, []);
-  return model;
-}
-
-export const toxicityProvider: Provider = {
-  provide: TOXICITY_MODEL,
-  useFactory: (thresh:number),
+const logger = new Logger('modelProvider');
+export const modelProvider: Provider = {
+  provide: 'CONNECTION',
+  useFactory: async () => {
+    logger.verbose('Loading the model...');
+    const model: toxicity.ToxicityClassifier = await toxicity.load(
+      TOXICITY_THRESH,
+      [],
+    );
+    logger.log('Model loaded successfully');
+    return model;
+  },
 };
