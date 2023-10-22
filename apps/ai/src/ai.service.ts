@@ -2,8 +2,7 @@ import { Analysis, RequestText } from '@app/interfaces';
 import { Inject, Injectable } from '@nestjs/common';
 import { TOXICITY_MODEL } from './constants';
 import * as toxicity from '@tensorflow-models/toxicity';
-import { mod } from '@tensorflow/tfjs';
-require('@tensorflow/tfjs');
+require('@tensorflow/tfjs-node');
 
 @Injectable()
 export class AiService {
@@ -15,7 +14,7 @@ export class AiService {
 
   async analyzeToxicity(reqText: RequestText): Promise<Analysis> {
     const { text } = reqText;
-    const result = await this.model.classify([text]);
+    const result = await this.model.classify(text);
     console.debug(
       'result ==================================================\n',
       result,

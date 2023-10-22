@@ -7,7 +7,7 @@ const logger = new Logger('modelProvider');
 export const modelProvider: Provider = {
   provide: TOXICITY_MODEL,
   useFactory: async () => {
-    logger.verbose('Loading the model...');
+    logger.log('Loading the model...');
     const model: toxicity.ToxicityClassifier = await toxicity.load(
       TOXICITY_THRESH,
       [],
