@@ -15,8 +15,10 @@ import { MicroPackageName } from 'libs/enums/package-name.enum';
         name: MicroPackageName.AI,
         transport: Transport.GRPC,
         options: {
+          url: APP_BINDINGS(MicroserviceName.AI).protoUrl,
           package: APP_BINDINGS(MicroserviceName.AI).packageName,
           protoPath: APP_BINDINGS(MicroserviceName.AI).protoPath,
+          loader: { keepCase: true },
         },
       },
     ]),

@@ -9,6 +9,7 @@ export function APP_BINDINGS(microName: MicroserviceName) {
   const packageName = microName.toLowerCase();
   const protoPath = join(__dirname, '../../../packages/proto/ai.proto');
   const url = `http://${host}:${httpPort}`;
+  const protoUrl = `${host}:${rpcPort}`;
 
-  return { host, httpPort, rpcPort, url, packageName, protoPath };
+  return { host, httpPort, rpcPort, url, protoUrl, packageName, protoPath };
 }

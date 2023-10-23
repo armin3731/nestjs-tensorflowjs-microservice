@@ -2,7 +2,7 @@ import { Analysis } from '@app/interfaces';
 import { Exclude, Expose } from 'class-transformer';
 
 @Exclude()
-export class ToxicitySerializer implements Analysis {
+export class AnalysisSerializer implements Analysis {
   @Expose()
   identity_attack: boolean;
 

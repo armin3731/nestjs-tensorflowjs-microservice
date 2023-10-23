@@ -11,8 +11,10 @@ async function bootstrap() {
     {
       transport: Transport.GRPC,
       options: {
+        url: bindings.protoUrl,
         package: bindings.packageName,
         protoPath: bindings.protoPath,
+        loader: { keepCase: true },
       },
     },
   );
