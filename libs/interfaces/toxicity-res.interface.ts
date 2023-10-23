@@ -1,5 +1,5 @@
 //Based on tfjs-models/toxicity package
-export interface ToxicityRes {
+export interface ToxicityResponse {
   label: string;
   results: ToxicityResult[];
 }

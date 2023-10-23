@@ -1,21 +1,30 @@
-import { Analysis, ToxicityRes } from '@app/interfaces';
+import { Analysis } from '@app/interfaces';
+import { Exclude, Expose } from 'class-transformer';
 
-export class ToxicityResSerializer {
-  constructor(private response: ToxicityRes[]) {}
+@Exclude()
+export class ToxicitySerializer implements Analysis {
+  @Expose()
+  identity_attack: boolean;
 
-  public serialize(): Analysis {
-    const output: Analysis = {
-      identity_attack: false,
-      insult: false,
-      obscene: false,
-      severe_toxicity: false,
-      sexual_explicit: false,
-      threat: false,
-      toxicity: false,
-    };
-    this.response.map(
-      (txRes) => (output[txRes.label] = txRes.results.at(0).match),
-    );
-    return output;
+  @Expose()
+  insult: boolean;
+
+  @Expose()
+  obscene: boolean;
+
+  @Expose()
+  severe_toxicity: boolean;
+
+  @Expose()
+  sexual_explicit: boolean;
+
+  @Expose()
+  threat: boolean;
+
+  @Expose()
+  toxicity: boolean;
+
+  constructor(data?: Partial<Analysis>) {
+    if (data) Object.assign(this, data);
   }
 }
