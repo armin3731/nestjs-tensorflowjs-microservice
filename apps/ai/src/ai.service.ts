@@ -1,7 +1,8 @@
-import { Analysis, RequestText } from '@app/interfaces';
+import { Analysis, RequestText, ToxicityRes } from '@app/interfaces';
 import { Inject, Injectable } from '@nestjs/common';
 import { TOXICITY_MODEL } from './constants';
 import * as toxicity from '@tensorflow-models/toxicity';
+import { ToxicityResSerializer } from './serializers';
 
 @Injectable()
 export class AiService {
@@ -13,11 +14,12 @@ export class AiService {
 
   async analyzeToxicity(reqText: RequestText): Promise<Analysis> {
     const { text } = reqText;
-    const result = await this.model.classify(text);
+    const response: ToxicityRes[] = await this.model.classify(text);
+
     console.debug(
       'result ==================================================\n',
-      result,
     );
-    return;
+    console.dir(response);
+    return new ToxicityResSerializer(response).serialize();
   }
 }
