@@ -1,7 +1,7 @@
 import * as toxicity from '@tensorflow-models/toxicity';
-require('@tensorflow/tfjs-node');
 import { TOXICITY_MODEL, TOXICITY_THRESH } from '../constants';
 import { Logger, Provider } from '@nestjs/common';
+require('@tensorflow/tfjs-node');
 
 const logger = new Logger('modelProvider');
 export const modelProvider: Provider = {

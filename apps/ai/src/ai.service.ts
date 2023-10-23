@@ -2,7 +2,6 @@ import { Analysis, RequestText } from '@app/interfaces';
 import { Inject, Injectable } from '@nestjs/common';
 import { TOXICITY_MODEL } from './constants';
 import * as toxicity from '@tensorflow-models/toxicity';
-require('@tensorflow/tfjs');
 
 @Injectable()
 export class AiService {
