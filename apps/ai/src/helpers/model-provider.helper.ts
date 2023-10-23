@@ -10,7 +10,15 @@ export const modelProvider: Provider = {
     logger.log('Loading the model...');
     const model: toxicity.ToxicityClassifier = await toxicity.load(
       TOXICITY_THRESH,
-      [],
+      [
+        'identity_attack',
+        'insult',
+        'obscene',
+        'severe_toxicity',
+        'sexual_explicit',
+        'threat',
+        'toxicity',
+      ],
     );
     logger.log('Model loaded successfully');
     return model;

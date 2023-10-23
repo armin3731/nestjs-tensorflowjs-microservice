@@ -20,16 +20,15 @@
     "test:e2e": "jest --config ./apps/app/test/jest-e2e.json"
   },
   "dependencies": {
-    "@fullstacksjs/toolbox": "^3.0.2",
+    "@fullstacksjs/toolbox": "^3.3.0",
     "@grpc/grpc-js": "^1.9.5",
-    "@nestjs/common": "^9.0.0",
+    "@nestjs/common": "^9.4.3",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
     "@nestjs/microservices": "^9.4.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.3.0",
     "@tensorflow-models/toxicity": "^1.2.2",
-    "@tensorflow/tfjs": "^4.11.0",
     "@tensorflow/tfjs-node": "^4.11.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
