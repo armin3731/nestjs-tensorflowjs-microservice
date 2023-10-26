@@ -15,7 +15,7 @@ This project consists of two microservices. The first microservice is called **_
 A straightforward illustration of the project presented below:
 
 <p align="center">
-  <img src="statics/illustration.svg" width="500" alt="DeepLearning in Microservices" />
+  <img src="statics/illustration_line.svg" width="500" alt="DeepLearning in Microservices" />
 </p>
 
 ## Installation
