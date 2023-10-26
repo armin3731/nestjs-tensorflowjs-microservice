@@ -84,7 +84,7 @@ If you use **.env.example** as your ENV variables, you will see a swagger api do
 #### Analyzing Toxicity
 
 ```http
-Post /analyze_toxicity
+POST /analyze_toxicity
 ```
 
 | Parameter | Type     | Description                                                      |
