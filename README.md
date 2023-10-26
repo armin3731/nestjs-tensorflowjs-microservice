@@ -1,3 +1,5 @@
+<a href="https://github.com/armin3731/nestjs-tensorflowjs-microservice" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+
 <p align="center">
   <img src="statics/nestjs-tensorflowjs-microservice-v3.png" width="800" alt="DeepLearning in Microservices" />
 </p>
@@ -11,6 +13,10 @@ Implementation of TensorFlowJs models in NestJs microservice architecture
 This project consists of two microservices. The first microservice is called **_App_** and acts as a gateway. App receives user _Text_ and send it to another microservice called **_Ai_** through a _gRPC_ connection. Ai analyzes the text and return _toxicity_ as a boolean. Also, the type of toxicity is returned in six different categories : `identity_attack`, `insult`, `obscene`, `severe_toxicity`, `sexual_explicit`, and `threat`. The results produces from a pre-trained network in [_Pre-trained TensorFlow.js models_](https://github.com/tensorflow/tfjs-models/tree/master), specifically the [_Toxicity classifier_](https://github.com/tensorflow/tfjs-models/tree/master/toxicity). It needless to say, that you can substitute toxicity model with your models and use this API for any custom application.
 
 A straightforward illustration of the project presented below:
+
+<p align="center">
+  <img src="statics/illustration.svg" width="500" alt="DeepLearning in Microservices" />
+</p>
 
 ## Installation
 
@@ -78,7 +84,7 @@ If you use **.env.example** as your ENV variables, you will see a swagger api do
 #### Analyzing Toxicity
 
 ```http
-  Post /analysis
+Post /analyze_toxicity
 ```
 
 | Parameter | Type     | Description                                                      |
@@ -87,7 +93,13 @@ If you use **.env.example** as your ENV variables, you will see a swagger api do
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![API Screenshot](statics/api_screenshot.png)
+
+![API Response](statics/responses.png)
+
+## ToDo
+
+- Caching the model to start faster
 
 ## Tech Stack
 
@@ -95,29 +107,6 @@ If you use **.env.example** as your ENV variables, you will see a swagger api do
 
 **Server:** Node, NestJs
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
 ## License
 
-Nest is [MIT licensed](LICENSE).
+[MIT licensed](LICENSE).
