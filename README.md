@@ -10,7 +10,7 @@ Implementation of TensorFlowJs models in NestJs microservice architecture
 
 ## Description
 
-This project consists of two microservices. The first microservice is called **_App_** and acts as a gateway. App receives user _Text_ and send it to another microservice called **_Ai_** through a _gRPC_ connection. Ai analyzes the text and return _toxicity_ as a boolean. Also, the type of toxicity is returned in six different categories : `identity_attack`, `insult`, `obscene`, `severe_toxicity`, `sexual_explicit`, and `threat`. The results produces from a pre-trained network in [_Pre-trained TensorFlow.js models_](https://github.com/tensorflow/tfjs-models/tree/master), specifically the [_Toxicity classifier_](https://github.com/tensorflow/tfjs-models/tree/master/toxicity). It needless to say, that you can substitute toxicity model with your models and use this API for any custom application.
+This project consists of two microservices. The first microservice is called **_App_** and acts as a gateway. App receives user's _Text_ and sends it to another microservice called **_Ai_** through a _gRPC_ connection. Ai analyzes the text and returns _toxicity_ as a boolean. Also, the type of toxicity describes in six different categories : `identity_attack`, `insult`, `obscene`, `severe_toxicity`, `sexual_explicit`, and `threat`. The results produces from a pre-trained network in [_Pre-trained TensorFlow.js models_](https://github.com/tensorflow/tfjs-models/tree/master), specifically the [_Toxicity classifier_](https://github.com/tensorflow/tfjs-models/tree/master/toxicity). It is needless to say, that you can substitute your own model with toxicity model and use this API for any custom application.
 
 A straightforward illustration of the project presented below:
 
