@@ -3,8 +3,10 @@ import { AiModule } from './ai.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { APP_BINDINGS } from 'libs/utils';
 import { MicroserviceName } from 'libs/enums';
+import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
+  const logger = new Logger('AiMicroservice');
   const bindings = APP_BINDINGS(MicroserviceName.AI);
   const micro = await NestFactory.createMicroservice<MicroserviceOptions>(
     AiModule,
@@ -20,7 +22,7 @@ async function bootstrap() {
   );
 
   await micro.listen();
-  console.log(
+  logger.debug(
     `${MicroserviceName.AI} microservice successfully started on port ${bindings.rpcPort}`,
   );
 }

@@ -35,10 +35,8 @@ cd nestjs-tensorflowjs-microservice
 Install dependencies
 
 ```bash
-npm ci
+npm install
 ```
-
-It is recommended to use `ci` or _clean-install_ instead of normal package installation because toxicity model is very sensitive to TensorflowJs version.
 
 ## Environment Variables
 
