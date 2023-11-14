@@ -98,6 +98,7 @@ POST /analyze_toxicity
 ## ToDo
 
 - Caching the model to start faster
+- Migration to Nest v10
 
 ## Tech Stack
 
