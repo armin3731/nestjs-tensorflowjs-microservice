@@ -18,6 +18,9 @@ A straightforward illustration of the project presented below:
   <img src="statics/illustration_line.svg" width="500" alt="DeepLearning in Microservices" />
 </p>
 
+## Give it a Start! ⭐ 
+If you liked the project and find it useful, support me by giving a star 😉
+
 ## Installation
 
 Clone the project
