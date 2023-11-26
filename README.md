@@ -10,16 +10,16 @@ Implementation of TensorFlowJs models in NestJs microservice architecture
 
 ## Description
 
-This project consists of two microservices. The first microservice is called **_App_** and acts as a gateway. App receives user's _Text_ and sends it to another microservice called **_Ai_** through a _gRPC_ connection. Ai analyzes the text and returns _toxicity_ as a boolean. Also, the type of toxicity describes in six different categories : `identity_attack`, `insult`, `obscene`, `severe_toxicity`, `sexual_explicit`, and `threat`. The results produces from a pre-trained network in [_Pre-trained TensorFlow.js models_](https://github.com/tensorflow/tfjs-models/tree/master), specifically the [_Toxicity classifier_](https://github.com/tensorflow/tfjs-models/tree/master/toxicity). It is needless to say, that you can substitute your own model with toxicity model and use this API for any custom application.
+This project consists of two microservices. The first microservice is called **_App_** and acts as a gateway. The App receives user's _Text_ and sends it to another microservice called **_Ai_** through a _gRPC_ connection. Ai analyzes the text and returns _toxicity_ as a boolean. Also, the type of toxicity is described in six different categories: `identity_attack`, `insult`, `obscene`, `severe_toxicity`, `sexual_explicit`, and `threat`. The results are produced from a pre-trained network in [_Pre-trained TensorFlow.js models_](https://github.com/tensorflow/tfjs-models/tree/master), specifically the [_Toxicity classifier_](https://github.com/tensorflow/tfjs-models/tree/master/toxicity). You can substitute your own model with the toxicity model and use this API for any custom application.
 
-A straightforward illustration of the project presented below:
+A straightforward illustration of the project is presented below:
 
 <p align="center">
   <img src="statics/illustration_line.svg" width="500" alt="DeepLearning in Microservices" />
 </p>
 
-## Give it a Start! ⭐ 
-If you liked the project and find it useful, support me by giving a star 😉
+## Give it a Star! ⭐ 
+If you liked the project and find it useful, support me by giving it a star 😉
 
 ## Installation
 
@@ -43,7 +43,7 @@ npm install
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file (or just rename **.env.example**)
+To run this project, you will need to add the following environment variables to your .env file (or simply rename **.env.example** file)
 
 `AI_HOST`
 
@@ -57,7 +57,7 @@ To run this project, you will need to add the following environment variables to
 
 ## Running the app
 
-First you need to run the App microservice:
+First, you need to run the App microservice:
 
 ```bash
 # runs App microservice as default
@@ -74,11 +74,11 @@ Then open another terminal and run Ai microservice:
 $ npm run start ai
 ```
 
-**Note!** Starting Ai microservice will take some seconds, because it loads the model at start.
+**Note!** Starting the AI microservice will take some seconds because it loads the model at the start.
 
-**Note!** To my dear friends from Iran. Use a tunneling system while running Ai microservice, because google cloud won't let you download the model.
+**Note!** To my dear friends from Iran. Use a tunneling system while running Ai microservice, because Google Cloud won't let you download the model.
 
-If you use **.env.example** as your ENV variables, you will see a swagger api documentation on `http://localhost:3000/api`
+If you use **.env.example** as your ENV variables, you will see a swagger API documentation on `http://localhost:3000/api`
 
 ## API Reference
 
